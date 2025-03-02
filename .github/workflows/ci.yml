@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  # Triggers the workflow on push or pull request events
+  push:
+    branches: [ "*" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          python3 -m pip install black
+          python3 -m pip install cookiecutter
+
+      - name: Create default template
+        run: python3 -m cookiecutter --no-input .
+
+      - uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          architecture: x64
+
+      - name: Run dev targets of the generated project
+        run: |
+          make -C lib fmt-check
+          make -C lib test

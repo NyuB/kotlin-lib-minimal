@@ -1,0 +1,10 @@
+# Maven
+target/
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# IntelliJ
+.idea/
+
+# Python
+__pycache__

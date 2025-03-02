@@ -1,0 +1,10 @@
+{
+    "name": "lib",
+    "group": "group",
+    "description": "An awesome lib !",
+    "author": "Me",
+    "repository": "{{cookiecutter.author}}/{{cookiecutter.name}}",
+    "repository_url": "https://github.com/{{cookiecutter.repository}}",
+    "java_version": "17",
+    "kotlin_version": "2.1.0"
+}
